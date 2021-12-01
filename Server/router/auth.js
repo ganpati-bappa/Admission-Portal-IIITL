@@ -7,12 +7,11 @@ const User = require('../Schema/user')
 // Database 
 require('./../db/Database.js');
 
+// Nodemailer
+const mail = require('./../Utils/nodemailer.js')
+
 // Hashing 
 const bcrypt = require('bcryptjs')
-
-router.get('/', (req,res) => {
-    res.send("Hellowww")
-})
 
 // Mongoose
 const mongoose = require('mongoose')
@@ -75,6 +74,7 @@ router.post('/Signin', async (req,res) => {
         }
     } 
     catch (err) {
+        res.status(401).json({error : err.message})
         console.log(err)
     }
 })
@@ -85,10 +85,10 @@ router.post('/SignUp', async (req,res) => {
 
     console.log(req.body)
     
-    const { Username , phone , password , c_password} = req.body
+    const { Username , phone , password , email} = req.body
 
     // Finding Unfilled Data
-    if (!Username || !phone || !password || !c_password) {
+    if (!Username || !phone || !password || !email) {
         return res.status(422).json({ error : "Please Fill All the fields properly"})
     }
 
@@ -101,26 +101,30 @@ router.post('/SignUp', async (req,res) => {
         if (userExists){
             return res.status(422).json({ error : "User Already Exists in the Database"})
         }
-        else if (password != c_password) {
-            return res.status(422).json({ error : "Password and Confirm Password Do Not match"})
-        }
         else {
 
-            let user = new User({Username : Username, phone : phone, password : password})
+            let user = new User({Username : Username, phone : phone, password : password, email : email})
             
             // Registering User into the Database
             const userRegister = await user.save();
+            
+            console.log(email)
+            mail(email,"Register Successful","Congratulation for Registering in IIIT Lucknow Admission Portal. Welcome")
 
             if (userRegister) {
-                res.status(201).json({ message : "User Register Successfully"})
+                console.log("Register Successfull")
+               
+                res.status(201).json({ message : "User Register Successfully"}) 
             } 
             else {
+                console.log(err)
                 res.status(500).json({ message : "Unable To Register User"})
             }
         }
         
     } catch (err) {
         console.log(err);
+        res.status(500).send({error : err.message})
     }
 })
 
@@ -133,6 +137,7 @@ router.get('/Signout', async (req, res) => {
 
 // Get Data
 router.get('/getData',  Authenticate, (req,res) => {
+    console.log(req.rootUser)
     res.status(201).send(req.rootUser)
 })
   
@@ -289,10 +294,8 @@ router.get('/userVerifier', async (req,res) => {
 
             // Iterating the database
             users.map(user => {
-                if (user.Certificates.length !== 0 && user.Certificates[0].filename !== null && user.Certificates[0].status <= 1){
                     console.log(user.Certificates[0])
                     Verifier.push(user)
-                }
             })
         })  
 

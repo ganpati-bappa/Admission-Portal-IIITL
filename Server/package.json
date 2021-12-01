@@ -13,7 +13,7 @@
     "bcrypt": "^5.0.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.5",
+    "cookie-parser": "^1.4.6",
     "crypto": "^1.0.1",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
@@ -27,6 +27,7 @@
     "multer-gridfs-storage": "^5.0.1",
     "nodemon": "^2.0.12",
     "path": "^0.12.7",
+    "proxy": "^1.0.2",
     "validate": "^5.1.0"
   }
 }
