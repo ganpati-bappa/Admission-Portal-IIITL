@@ -2,18 +2,15 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 100vh;
-    overflow-y: hidden;
 
     .LoginPage_Container {
         display: flex;
-        width: 35%;
         flex-direction: column;
         box-sizing: border-box;
         box-shadow: 2px 2px 2px 2px rgba(20,20,20,0.4);
         border-radius: 2%;
         border: 0.002px solid rgba(0,0,0,0.1);
-        margin: 5vw;
+        position: relative;
 
         .Form_error {
             margin-top: 20px;
@@ -57,7 +54,6 @@
         background-color: #0b0C10;
         left: 0;
         width: 45%;
-        height: 100vh;
         align-content: center;
         justify-content: center;
 
@@ -81,6 +77,51 @@
     }
 }
 
-@media screen and (max-width : 768px) {
-    
+@media screen and (min-width: 768px) {
+    .Login_Register_Container {        
+        height: 100vh;
+    }
+
+    .LoginPage_Container {
+        overflow: auto;
+        width: 35%;
+        bottom: 3vh;
+    }
+
+    .Movable_Container {
+        height: 110vh;
+    }
 }
+
+@media screen and (max-width : 768px) and (min-width : 469px) {
+    .Login_Register_Container {
+        overflow: auto;
+        height: 110vh;
+    }
+
+    .Movable_Container {
+        height: 140vh;
+    }
+
+    .LoginPage_Container {
+        width: 35%;
+        bottom: 7vh;
+    }
+}
+
+@media screen and (max-width: 468px){
+    .Login_Register_Container {
+        overflow: auto;
+        height: 110vh;
+    }
+
+    .LoginPage_Container {
+        width: 35%;
+        bottom: 10vh;
+    }
+
+    .Movable_Container {
+        height: 140vh;
+    }
+}
+

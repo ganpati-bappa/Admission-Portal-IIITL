@@ -4,7 +4,6 @@ $primary : #ffff;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80%;
 }
 
 .btn {
@@ -66,7 +65,7 @@ $primary : #ffff;
     width: 30px;
     height: 30px;
     border-radius: 45%;
-    font-size: 12px;
+    font-size: 15px;
     padding: 8px;
 
     &:hover {
@@ -167,9 +166,21 @@ $primary : #ffff;
     }
 }
 
-@media screen and (max-width : 768px){
+@media screen and (max-width : 768px) and (min-width: 469px){
     .btn {
         padding: 8px 20px;
     }
+}
+
+@media screen and (max-width : 468px) and (min-width: 269px){
+    .btn {
+        font-size: 12px;
+    }
     
+}
+
+@media screen and (max-width:268px) {
+    .btn {
+        font-size: 8px;
+    }
 }

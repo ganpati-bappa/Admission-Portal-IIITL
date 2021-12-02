@@ -188,7 +188,6 @@ export const Login = () => {
                             <Button 
                             buttonStyle = 'btn--outline'
                             buttonColor = 'blue' 
-                            buttonSize = 'btn--wide' 
                             onClick = {Register_PostData}>
                                 Register
                             </Button>   
@@ -220,7 +219,6 @@ export const Login = () => {
                     <Button  
                         buttonStyle = 'btn--outline' 
                         buttonColor = 'blue' 
-                        buttonSize = 'btn--wide'
                         onClick = {Login_PostData} >
                         Login
                     </Button>   
