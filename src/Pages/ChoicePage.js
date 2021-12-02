@@ -18,24 +18,28 @@ export const ChoicePage = () => {
         <div className = "Choices_page_container">
             
             <div className = "Choice_As_Students">
-                <LottieAnimations lotti = {Student} width = '350px'></LottieAnimations>
+                <div className = "lottieAnimation">
+                    <LottieAnimations lotti = {Student} width = '60%'></LottieAnimations>
+                </div>
                 
                 <div className = "Choice_buttons">
-                    <Link to = '/Login'>
+                    <Link to = '/Login' className = 'ButtonLink'>
                         
                         <Button buttonStyle = 'btn--outline' >
                             Login As Student
                         </Button>    
-
+                        
                     </Link>
                 </div>
             </div>
 
             <div className = "Choice_As_Faculty">
-                <LottieAnimations lotti = {Teacher} width = '350px'></LottieAnimations>
+                <div className = "lottieAnimation">
+                    <LottieAnimations lotti = {Teacher} width = '75%' ></LottieAnimations>
+                </div>
                 
                 <div className = "Choice_buttons">
-                    <Link to = '/LoginFaculty'>
+                    <Link to = '/LoginFaculty' className = 'ButtonLink'>
                         
                         <Button buttonStyle = 'btn--outline' >
                             Login As Faculty

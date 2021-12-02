@@ -3,6 +3,7 @@
     height: 96vh;
     background-color: #0B0C10;
     color: #fff;
+    overflow-y: hidden;
 
     .HomePage_description_section {
         display: flex;
@@ -37,21 +38,29 @@
     }
 
     .HomePage_image_section {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        margin: 30px;
-
         img {
             display: inline-block;
             width: 100%;
         }
     }
-}
+}    
 
-@media screen and (max-height: 500px){
-    .HomePage_container {
-        margin-top: 100px;
+
+@media only screen and (min-width: 769px) {
+    .HomePage_image_section {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        margin: 30px;
+    }
+}
+    
+
+@media only screen and (max-width: 768px){
+    
+    .HomePage_image_section {
+        display: none;
+        margin: 10px;
     }
 }

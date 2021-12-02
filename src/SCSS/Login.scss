@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 96vh;
+    height: 100vh;
+    overflow-y: hidden;
 
     .LoginPage_Container {
         display: flex;
@@ -56,7 +57,7 @@
         background-color: #0b0C10;
         left: 0;
         width: 45%;
-        height: 97vh;
+        height: 100vh;
         align-content: center;
         justify-content: center;
 
@@ -78,4 +79,8 @@
             }
         }
     }
+}
+
+@media screen and (max-width : 768px) {
+    
 }

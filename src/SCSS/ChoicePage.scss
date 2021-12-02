@@ -2,15 +2,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 92vh;
     width: 100vw;
+    height: 100vh;
 
     .Choice_As_Students {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-self: center;
-        height: 100%;box-sizing: border-box;
+        height: 100%;
+        box-sizing: border-box;
         color: #DEF2F1;
         box-shadow: 2px 2px 2px 2px rgba(39,106,251,0.3);
         flex-basis: 50%;
@@ -30,6 +30,41 @@
     .Choice_buttons {
         display: flex;
         justify-content: center;
+        align-items: center;
         margin: 30px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .Choice_buttons {
+        margin: 30px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .Choices_page_container {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .ButtonLink {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .Choice_buttons {
+        width: 100%;
+        margin: 30px;
+    }
+
+    .Choice_As_Students {
+        padding-top: 50px;
+        width: 100vw;
+    }
+
+    .Choice_As_Faculty {
+        width: 100vw;
     }
 }

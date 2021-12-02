@@ -16,8 +16,10 @@ export const Button = ({children, type, onClick, buttonStyle, buttonSize, button
     const checkButtonSize = Sizes.includes(buttonSize) ? buttonSize : Sizes[0];
     
     return (
-       <button className = {`btn ${checkButtonStyle} ${checkButtonSize} ${checkButtonColor}`} onClick = {onClick} type = {type} formMethod = {formmethod}>
-            {children}
-        </button>
+        <div className = 'button_container'>
+            <button className = {`btn ${checkButtonStyle} ${checkButtonSize} ${checkButtonColor}`} onClick = {onClick} type = {type} formMethod = {formmethod}>
+                {children}
+            </button>
+        </div>
     );
 }
